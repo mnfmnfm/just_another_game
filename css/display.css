@@ -27,6 +27,7 @@ main {
   display: none;
 }
 
+/* You have two sets of delcarations for main (see line 20). Try to consolidate where possible. */
 main {
   display: flex;
   flex-direction: row;
@@ -269,6 +270,7 @@ h2 {
   }
 }
 
+/* shiny */
 @media only screen and (max-width: 760px)  {
   /* Styles */
   main {

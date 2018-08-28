@@ -74,6 +74,8 @@ ul li a {
 /* tilts the links*/
 
 ul li a {
+    /* VSCode gives me the error here, "also include the standard transform property for compatibility". */
+    /* Now I wonder if I have some package installed that specifically does CSS linting? Hmmm... */
     -webkit-transform: rotate(-6deg);
     -o-transform: rotate(-6deg);
     -moz-transform: rotate(-6deg);
@@ -154,3 +156,4 @@ a:hover {
 }
 
 /* Used CSS Styles from Chris Heilman*/
+/* thank you for including citations! */

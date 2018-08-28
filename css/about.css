@@ -42,6 +42,7 @@ h1{
 }
 
 p {
+    /* nooo zombie code! */
     /* height: 30vh; */
     padding: 10px;
     color: black;
@@ -54,6 +55,7 @@ p {
 }
 
 div {
+    /* O= brainssss */
     /* height: 350px; */
     width: 200px;
     color: #46aeda;

@@ -6,6 +6,7 @@ main {
   height: 100vh;
 }
 
+/* I literally declare this class in 80% of the CSS files I write. */
 .hidden {
   display: none;
 }
