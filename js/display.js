@@ -33,17 +33,18 @@ playerArr.forEach(function (player) {
 
   // setting the text inside of the new p tag to the score of each player,
   // then push thoses scores to the empty array of playerScores.
-  // lastly appending all knew html properties to the new div
+  // lastly appending all new html properties to the new div
   newP.innerText = player.score;
   playerScores.push(newP);
   newDiv.appendChild(newH3);
   newDiv.appendChild(newP);
   playerScoreArea.appendChild(newDiv);
   playerBoxArray.push(newDiv);
+  // Seems excessive to do this every time you create a new player; this could go on line 46, outside the loop.
   checkStatus();
 });
 
-// set turn remainging
+// set turn remaining
 turnsRemaining = playerArr.length === 3 ? 9 : 8;
 var turnsRemainingTag = document.getElementById('turns-remaining');
 turnsRemainingTag.innerText = turnsRemaining;
@@ -65,6 +66,10 @@ function checkStatus() {
 
 // get random questions
 function getRandomQuestion() {
+  // could do this just inside the loop and make it a do/while
+  // var qNum;
+  // do { qNum = Math.floor(etc) } while (usedQuestions.includes(qNum));
+  // less repeated logic that way
   var qNum = Math.floor(Math.random() * allQuestions.length);
   while (usedQuestions.includes(qNum)) {
     qNum = Math.floor(Math.random() * allQuestions.length);
@@ -74,6 +79,8 @@ function getRandomQuestion() {
   var selectedQuestion = allQuestions[qNum];
   usedQuestions.push(qNum);
   questionHead.innerText = 'Here is your next category:';
+  // You don't need a template literal for this; could just say
+  // questionText.innerText = selectedQuestion.category;
   questionText.innerText = `${selectedQuestion.category}`;
   createPickerButton(selectedQuestion);
 }
@@ -145,6 +152,10 @@ function selectAnswerEvent(div, currentAnswer, correctAnswer) {
 // looping though possible response based off of click data
 function selectAnswer(pickedAnswer, correctAnswer) {
   clearAnswers();
+  // could do this a little more nicely:
+  // var isCorrect = pickedAnswer === correctAnswer;
+  // if (isCorrect) ...
+  // and then you wouldn't have to set it again inside the conditionals.
   var isCorrect;
   if (pickedAnswer === correctAnswer) {
     questionHead.classList.add('correct-response');
@@ -184,6 +195,8 @@ function updateScores(isCorrect) {
   }
 }
 
+// I really like this function whose job is mostly to call other functions!
+// Good organization.
 function advanceTurn() {
   questionHead.classList.remove('correct-response');
   questionHead.classList.remove('wrong-response');
@@ -198,6 +211,7 @@ function advanceTurn() {
 
 // check if game ending conditions are met
 function gameOverCheck() {
+  // var gameOver = turnsRemaining <= 0;
   var gameOver = turnsRemaining > 0 ? false : true;
   var loser = [{ name: 'x', score: '600' }];
   playerArr.forEach(function (player) {
@@ -230,3 +244,4 @@ function adjustAnswerText() {
 }
 
 getRandomQuestion();
+// missing trailing newline

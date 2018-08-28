@@ -3,12 +3,14 @@
 // Constructor for Player object which gets pushed to playerArr
 var playerArr = [];
 
+// You could include Player in your list of globals in .eslintrc.json to avoid this issue.
 function Player(name) {
   this.name = name;
   this.score = 500;
   playerArr.push(this);
 }
 
+// This seems to me like it's SCREAMING for a Question constructor!
 // Questions
 var allQuestions = [
   {
