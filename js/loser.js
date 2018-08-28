@@ -8,6 +8,8 @@ var pTags = document.getElementsByTagName('p');
 if (loser.length === numberOfPlayers) {
   displayLoser('HOLY CRAP!', 'Everyone\'s a loser today.', 'Nobody wins!!!');
 } else if (loser.length > 1) {
+  // you could declare/use the names variable here, since it's only used here. In general, try to
+  // use the most limited scope possible for variables.
   loser.forEach(function(player) {
     names.push(player.name);
   });
@@ -16,6 +18,7 @@ if (loser.length === numberOfPlayers) {
   displayLoser(`${loser[0].name} remember today...`, 'It is the day you lost!', 'You got Played!!!');
 }
 
+// this logic is so nice and modular <3
 function displayLoser(text1, text2, text3) {
   setTimeout(function() {
     pTags[0].classList.remove('hidden');
@@ -36,3 +39,4 @@ function displayBottomHalf() {
   var bottomHalf = document.getElementById('bottom-half');
   bottomHalf.classList.remove('hidden');
 }
+// missing trailing newline
